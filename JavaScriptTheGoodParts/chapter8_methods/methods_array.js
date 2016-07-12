@@ -141,3 +141,69 @@
 // c is [ { v: 100 }, { v: 1 } ]
   console.log(c);
 }();
+
+
+/**
+ * array.sort(comparefn)
+ *
+ * The sort method sorts the contents of an array in place. 
+ * It sorts arrays of numbers incorrectly.
+ *
+ * JavaScript's default comparison function assumes that the elememts 
+ * to be sorted are strings.
+ *
+ * You may replace the comparison function with your own. 
+ */
+!function () {
+  var n = [4, 8, 15, 16, 23, 42];
+  n.sort();
+
+// n is [ 15, 16, 23, 4, 42, 8 ]
+  console.log(n);
+
+  n.sort(function (a, b) {
+    return a - b;
+  });
+
+// n is [ 4, 8, 15, 16, 23, 42 ]
+  console.log(n);
+}();
+
+
+/**
+ * array.splice(start, deleteCount, item...)
+ *
+ * The splice method removes elements from an array, 
+ * replacing them with new items.
+ * It returns an array containing the deleted elements.
+ */
+!function () {
+  var a = ['a', 'b', 'c'];
+  var r = a.splice(1, 1, 'ache', 'bug');
+
+// a is [ 'a', 'ache', 'bug', 'c' ]
+  console.log(a);
+
+// r is [ 'b' ]
+  console.log(r);
+}();
+
+
+/**
+ * array.unshift(item...)
+ *
+ * The unshift method is like the push method except that it shoves the 
+ * items onto the front of this array instead of at the end.
+ * It returns the array's new length.
+ */
+!function () {
+  var a = ['a', 'b', 'c'];
+  var r = a.unshift('?', '@');
+
+// a is [ '?', '@', 'a', 'b', 'c' ]
+  console.log(a);
+
+// r is 5
+  console.log(r);
+
+}();
